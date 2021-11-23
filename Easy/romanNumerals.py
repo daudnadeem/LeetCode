@@ -27,7 +27,7 @@ roman_map ={
     "M" : 1000
 }
 
-"MCMXCIV"
+# SOLUTION 1
 
 def roman_to_int(r_num):
     summ = 0
@@ -44,6 +44,8 @@ def roman_to_int(r_num):
 
 # print(roman_to_int("MCMXCIV"))
 
+# SOLUTION 2
+
 def romanToInt(s):
     # N == Length of S 
     # N == 7
@@ -53,15 +55,13 @@ def romanToInt(s):
     # Output is where we append the final result
 	output = 0
 	while i>=0:
-		x = i+1
-		print(f'conditional: {i} < {x}')
+		print(f'i: {i}')
 		if i < N-1 and roman_map[s[i]] < roman_map[s[i+1]]:
 			output -= roman_map[s[i]]
 		else:
-			print(f'I CAME HERE in ITERATION: {i}')
 			output += roman_map[s[i]]
-		print(f'iteration: {i}, roman_num: {s} summ == {output}')
 		i -= 1
+		print(output)
 	return output
 
 # print(romanToInt("MCMXCIV"))
@@ -69,18 +69,35 @@ def romanToInt(s):
 # print(roman_to_int(1000))
 
 # THIS ONES MINE!
-def roman_to_INT(rome="MCMXCIV"):
+def roman_to_INT(rome):
     rslt = 0
     N = len(rome)
+    print(f'N : {N}')
     rome = rome[::-1]
+    print(rome)
     for i in range(len(rome)):
+        
         if i < N-1 and roman_map[rome[i]] < roman_map[rome[i+1]]:
+            print(f'{roman_map[rome[i]]} < {roman_map[rome[i+1]]}')
             rslt -= roman_map[rome[i]]
         else:
             rslt += roman_map[rome[i]]
-    print(rslt)
+        print(f'RSLT: {rslt}')
     return rslt
 
-        # print(roman_map[ech])
 
-roman_to_INT("III")
+# print(roman_to_INT("III"))
+# print(roman_to_INT("IV"))
+# print(roman_to_INT("IX"))
+# print(romanToInt("LVIII"))
+# print("MINE --- ")
+print(roman_to_INT("LVIII"))
+# print(roman_to_INT("MCMXCIV"))
+
+"""
+3
+4
+9
+58
+1994
+"""
